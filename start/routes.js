@@ -21,13 +21,15 @@ const Util = require('@Lib/Util')
 Route.group(() => {
   try {
     Route.get('test', 'TestController.testConsole')
+    Route.get('hello-world', 'TestController.helloWorld')
+    Route.get('get-books', 'books/BooksController.getUsers')
   } catch(err) {
     return Util.end2front({
       msg: '服务端无此路由',
       code: 9999,
     })
   }
-}).prefix('api/v1')
+}).prefix('api/qxs')
 
 // Route.on('/').render('welcome')
 

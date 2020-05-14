@@ -16,7 +16,8 @@ module.exports = {
   | interacting with SQL databases.
   |
   */
-  connection: Env.get('DB_CONNECTION', 'sqlite'),
+  // connection: Env.get('DB_CONNECTION', 'sqlite'),
+  connection: 'mysql',
 
   /*
   |--------------------------------------------------------------------------
@@ -50,11 +51,17 @@ module.exports = {
   mysql: {
     client: 'mysql',
     connection: {
-      host: Env.get('DB_HOST', 'localhost'),
-      port: Env.get('DB_PORT', ''),
-      user: Env.get('DB_USER', 'root'),
-      password: Env.get('DB_PASSWORD', ''),
-      database: Env.get('DB_DATABASE', 'adonis')
+      // host: Env.get('DB_HOST', 'localhost'),
+      // port: Env.get('DB_PORT', ''),
+      // user: Env.get('DB_USER', 'root'),
+      // password: Env.get('DB_PASSWORD', ''),
+      // database: Env.get('DB_DATABASE', 'adonis')
+      host: '127.0.0.1',
+      port: '3306',
+      user: 'root',
+      password: '174990tg',
+      database: 'qxs',
+      insecureAuth : true
     }
   },
 
