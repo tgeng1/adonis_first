@@ -5,11 +5,18 @@ const Util = require('@Lib/Util')
 
 class BooksService {
   async getUsers(ctx) {
-
-    const { request } = ctx
-    const result = await Database.table('books').select('*')
-    let data = result
-    if (result) {
+    const { pageNo, pageSize } = ctx.request.all()
+    const result = await Database
+      .from('books')
+      .select('*')
+      .where('_id', '>', (pageNo - 1) * pageSize)
+      .limit(pageSize)
+      .orderBy('_id', 'desc')
+    const count = await Database
+      .from('books')
+      .getCount()
+      let data = { result, count }
+    if (result && count) {
       return Util.end2front({data})
     }
   }
