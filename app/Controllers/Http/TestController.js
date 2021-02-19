@@ -3,7 +3,7 @@
 const Database = use('Database')
 class TestController {
   async testConsole() {
-    console.log('-------->test')
+    console.log('--------->test')
   }
 
   async helloWorld(body) {
